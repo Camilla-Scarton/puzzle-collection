@@ -35,6 +35,9 @@ import { LayoutMode } from '../../services/layout.service';
         [class.aspect-[4/3]]="layoutMode === 'grid'"
         [class.rounded-t-xl]="layoutMode === 'grid'"
         [class.rounded-lg]="layoutMode === 'masonry'"
+        
+        [class.w-fit]="layoutMode === 'masonry'"
+        [class.mx-auto]="layoutMode === 'masonry'"
       >
         <img 
           [src]="puzzle.imageUrl" 
