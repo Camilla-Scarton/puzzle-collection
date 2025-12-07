@@ -59,7 +59,7 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
     </div>
 
     <!-- Results Count -->
-    <div class="mb-4 text-sm text-gray-400 font-medium">
+    <div *ngIf="layout.layoutMode() === 'grid'" class="mb-4 text-sm text-gray-400 font-medium">
       Showing {{ visiblePuzzles().length }} puzzles
     </div>
 
@@ -85,7 +85,7 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
         class="block break-inside-avoid transition-all duration-500 ease-out"
         [class.h-full]="layout.layoutMode() === 'grid'"
         
-        [class.-mt-32]="layout.layoutMode() === 'masonry'"
+        [class.-mt-12]="layout.layoutMode() === 'masonry'"
         [class.first:mt-0]="layout.layoutMode() === 'masonry'"
         [class.hover:z-50]="layout.layoutMode() === 'masonry'"
         [class.relative]="layout.layoutMode() === 'masonry'"

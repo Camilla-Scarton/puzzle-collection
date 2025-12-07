@@ -31,6 +31,7 @@ import { LayoutMode } from '../../services/layout.service';
       <!-- Image Container -->
       <div 
         class="relative overflow-hidden bg-gray-900"
+        [class.bg-transparent]="layoutMode === 'masonry'"
         [class.aspect-[4/3]]="layoutMode === 'grid'"
         [class.rounded-t-xl]="layoutMode === 'grid'"
         [class.rounded-lg]="layoutMode === 'masonry'"
