@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -81,7 +81,8 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
         [id]="'puzzle-' + puzzle.id"
         [puzzle]="puzzle"
         [layoutMode]="layout.layoutMode()"
-        [isActive]="activePuzzleId() === puzzle.id"
+        [isActive]="highlightedPuzzleId() === puzzle.id"
+        (mouseenter)="highlightedPuzzleId.set(puzzle.id)"
         class="block break-inside-avoid transition-all duration-500 ease-out"
         [class.h-full]="layout.layoutMode() === 'grid'"
         
@@ -104,7 +105,10 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
       <button 
         *ngFor="let puzzle of visiblePuzzles()" 
         (click)="scrollToPuzzle('puzzle-' + puzzle.id)"
-        class="relative group w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent hover:border-indigo-500 transition-all shrink-0 focus:outline-none focus:border-indigo-500"
+        [id]="'minimap-btn-' + puzzle.id"
+        class="relative group w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0 focus:outline-none focus:border-indigo-500"
+        [class.border-transparent]="highlightedPuzzleId() !== puzzle.id"
+        [class.border-indigo-500]="highlightedPuzzleId() === puzzle.id"
         title="{{ puzzle.title }}"
       >
         <img [src]="puzzle.imageUrl" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" [alt]="puzzle.title">
@@ -121,7 +125,7 @@ export class PuzzleList {
   puzzles = toSignal(this.puzzleService.getPuzzles(), { initialValue: [] });
   filterStatus = signal<FilterStatus>('all');
   sortOption = signal<SortOption>('newest');
-  activePuzzleId = signal<string | null>(null);
+  highlightedPuzzleId = signal<string | null>(null);
 
   // Computed
   visiblePuzzles = computed(() => {
@@ -142,14 +146,30 @@ export class PuzzleList {
     });
   });
 
+  constructor() {
+    // Auto-scroll Mini Map
+    effect(() => {
+      const targetId = this.highlightedPuzzleId();
+
+      if (targetId) {
+        const miniMapBtn = document.getElementById(`minimap-btn-${targetId}`);
+        if (miniMapBtn) {
+          miniMapBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    });
+  }
+
   scrollToPuzzle(elementId: string) {
     // Extract ID from "puzzle-123" string
     const puzzleId = elementId.replace('puzzle-', '');
-    this.activePuzzleId.set(puzzleId);
+    this.highlightedPuzzleId.set(puzzleId);
 
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
+  // I will add the import in the top of file edit. 
+  // Here only the method logic. 
 }
