@@ -77,18 +77,19 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
       [class.pb-24]="layout.layoutMode() === 'masonry'"
     >
       <app-puzzle-card 
-        *ngFor="let puzzle of visiblePuzzles()" 
+        *ngFor="let puzzle of visiblePuzzles(); let i = index" 
         [id]="'puzzle-' + puzzle.id"
         [puzzle]="puzzle"
         [layoutMode]="layout.layoutMode()"
         [isActive]="highlightedPuzzleId() === puzzle.id"
         (mouseenter)="highlightedPuzzleId.set(puzzle.id)"
+        [style.zIndex]="highlightedPuzzleId() === puzzle.id ? 9999 : (visiblePuzzles().length - i)"
         class="block break-inside-avoid transition-all duration-500 ease-out"
         [class.h-full]="layout.layoutMode() === 'grid'"
         
         [class.-mt-12]="layout.layoutMode() === 'masonry'"
         [class.first:mt-0]="layout.layoutMode() === 'masonry'"
-        [class.hover:z-50]="layout.layoutMode() === 'masonry'"
+
         [class.relative]="layout.layoutMode() === 'masonry'"
       ></app-puzzle-card>
       
