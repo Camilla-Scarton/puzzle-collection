@@ -80,9 +80,9 @@
         </div>
 
         <!-- Rating -->
-        <div *ngIf="puzzle.rating" class="mt-3 flex items-center gap-1 text-yellow-400">
+        <div *ngIf="puzzle.rating" class="mt-3 flex items-center gap-1">
             <ng-container *ngFor="let star of [1,2,3,4,5]">
-                <span class="text-lg" [class.text-gray-600]="star > (puzzle.rating || 0)">★</span>
+                <span class="text-lg" [ngClass]="getStarClass(star, puzzle.rating || 0)">★</span>
             </ng-container>
         </div>
     </div>

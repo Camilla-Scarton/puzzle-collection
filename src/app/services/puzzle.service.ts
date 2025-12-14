@@ -25,7 +25,7 @@ export class PuzzleService {
             brand: 'Clementoni',
             pieceCount: 1500,
             review: 'Beautiful colors, but the sky was tricky.',
-            rating: 4,
+            rating: 4.5,
             imageUrl: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             status: 'completed'
         },
