@@ -17,10 +17,12 @@
 
       <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6">
-          <button (click)="setFilter('all')" class="text-sm font-medium transition-colors hover:text-white"
+          <button (click)="setFilter('all')"
+            class="text-sm font-medium transition-colors hover:text-white cursor-pointer"
             [class.text-white]="puzzleService.filterStatus() === 'all'"
             [class.text-gray-400]="puzzleService.filterStatus() !== 'all'">All Puzzles</button>
-          <button (click)="setFilter('wishlist')" class="text-sm font-medium transition-colors hover:text-white"
+          <button (click)="setFilter('wishlist')"
+            class="text-sm font-medium transition-colors hover:text-white cursor-pointer"
             [class.text-white]="puzzleService.filterStatus() === 'wishlist'"
             [class.text-gray-400]="puzzleService.filterStatus() !== 'wishlist'">Wishlist</button>
         </nav>
@@ -29,7 +31,7 @@
 
         <!-- Layout Toggle -->
         <button (click)="layout.toggleLayout()"
-          class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+          class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors cursor-pointer"
           title="Toggle Layout">
           <svg *ngIf="layout.layoutMode() === 'grid'" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +66,7 @@
 
   <!-- Scroll to Top Button -->
   <button (click)="scrollToTop()"
-    class="fixed bottom-6 left-6 p-3 rounded-lg bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300 shadow-lg border border-gray-700 z-50"
+    class="fixed bottom-6 left-6 p-3 rounded-lg bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300 shadow-lg border border-gray-700 z-50 cursor-pointer"
     [class.opacity-0]="!showScrollTop()" [class.opacity-100]="showScrollTop()"
     [class.pointer-events-none]="!showScrollTop()" title="Scroll to Top">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
