@@ -10,7 +10,8 @@ import { LayoutMode } from '../../services/layout.service';
   template: `
     <!-- Card Container -->
     <div 
-      class="group relative overflow-hidden transition-all duration-300 h-full flex flex-col"
+      class="group relative transition-all duration-300 h-full flex flex-col"
+      [class.overflow-hidden]="layoutMode === 'grid'"
       [style.transform]="layoutMode === 'masonry' ? 'translateX(' + randomOffset + '%)' : ''"
       [class.bg-gray-800]="layoutMode === 'grid'"
       [class.rounded-xl]="layoutMode === 'grid'"
@@ -30,7 +31,8 @@ import { LayoutMode } from '../../services/layout.service';
       
       <!-- Image Container -->
       <div 
-        class="relative overflow-hidden bg-gray-900"
+        class="relative bg-gray-900"
+        [class.overflow-hidden]="layoutMode === 'grid'"
         [class.bg-transparent]="layoutMode === 'masonry'"
         [class.aspect-[4/3]]="layoutMode === 'grid'"
         [class.rounded-t-xl]="layoutMode === 'grid'"
@@ -55,11 +57,15 @@ import { LayoutMode } from '../../services/layout.service';
           [class.opacity-90]="layoutMode === 'grid'"
           [class.group-hover:opacity-100]="layoutMode === 'grid'"
           [class.opacity-100]="layoutMode === 'masonry'"
+          [class.border-2]="layoutMode === 'masonry'"
+          [class.border-gray-200]="layoutMode === 'masonry'"
+          [class.rounded-lg]="layoutMode === 'masonry'"
+          [class.group-hover:shadow-[0_0_30px_5px_rgba(99,102,241,0.6)]]="layoutMode === 'masonry'"
         />
 
         <!-- Masonry Overlay (Only visible on hover in masonry mode) -->
         <div *ngIf="layoutMode === 'masonry'" 
-             class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+             class="absolute inset-[2px] rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
           <h3 class="font-bold text-white text-xl leading-tight mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{{ puzzle.title }}</h3>
           <p class="text-gray-300 text-sm font-medium mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{{ puzzle.brand }} &bull; {{ puzzle.pieceCount }} pcs</p>
           
