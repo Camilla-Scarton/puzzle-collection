@@ -82,9 +82,9 @@ import { LayoutMode } from '../../services/layout.service';
         <!-- Grid Status Badge (Only for grid) -->
         <div *ngIf="layoutMode === 'grid'" class="absolute top-3 right-3">
           <span [ngClass]="{
-            'bg-green-500/20 text-green-300 border-green-500/30': puzzle.status === 'completed',
-            'bg-blue-500/20 text-blue-300 border-blue-500/30': puzzle.status === 'in-progress',
-            'bg-purple-500/20 text-purple-300 border-purple-500/30': puzzle.status === 'wishlist'
+            'bg-green-950/80 text-green-400 border-green-500/50': puzzle.status === 'completed',
+            'bg-blue-950/80 text-blue-400 border-blue-500/50': puzzle.status === 'in-progress',
+            'bg-purple-950/80 text-purple-400 border-purple-500/50': puzzle.status === 'wishlist'
           }" class="px-2 py-1 rounded-full text-xs font-medium uppercase tracking-wider backdrop-blur-md border">
             {{ formatStatus(puzzle.status) }}
           </span>
