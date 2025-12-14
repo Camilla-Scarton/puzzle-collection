@@ -1,8 +1,10 @@
 import { Component, inject, signal, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Important for *ngIf on toggle button
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PuzzleList } from './components/puzzle-list/puzzle-list';
 import { LayoutService } from './services/layout.service';
+import { PuzzleService } from './services/puzzle.service';
+import { FilterStatus } from './models/puzzle.model';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,7 @@ import { LayoutService } from './services/layout.service';
 export class App {
   protected readonly title = signal('puzzle-collection');
   layout = inject(LayoutService);
+  puzzleService = inject(PuzzleService);
   showScrollTop = signal(false);
 
   @HostListener('window:scroll')
@@ -22,5 +25,10 @@ export class App {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  setFilter(status: FilterStatus) {
+    this.puzzleService.filterStatus.set(status);
+    this.scrollToTop();
   }
 }

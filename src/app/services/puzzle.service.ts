@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Puzzle } from '../models/puzzle.model';
+import { Puzzle, FilterStatus } from '../models/puzzle.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PuzzleService {
+    filterStatus = signal<FilterStatus>('all');
 
     private puzzles: Puzzle[] = [
         {

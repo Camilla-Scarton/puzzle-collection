@@ -8,7 +8,6 @@ import { PuzzleCard } from '../puzzle-card/puzzle-card';
 import { Puzzle } from '../../models/puzzle.model';
 
 type SortOption = 'newest' | 'title' | 'pieces_asc' | 'pieces_desc' | 'rating';
-type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
 
 @Component({
   selector: 'app-puzzle-list',
@@ -21,8 +20,8 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
         <label class="text-sm font-medium text-gray-400 whitespace-nowrap">Status:</label>
         <div class="relative w-full sm:w-48">
           <select 
-            [ngModel]="filterStatus()" 
-            (ngModelChange)="filterStatus.set($event)"
+            [ngModel]="puzzleService.filterStatus()" 
+            (ngModelChange)="puzzleService.filterStatus.set($event)"
             class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm"
           >
             <option value="all">All Puzzles</option>
@@ -119,20 +118,19 @@ type FilterStatus = 'all' | 'completed' | 'in-progress' | 'wishlist';
   styles: ``
 })
 export class PuzzleList {
-  private puzzleService = inject(PuzzleService);
+  public puzzleService = inject(PuzzleService);
   layout = inject(LayoutService);
 
   // State
   puzzles = toSignal(this.puzzleService.getPuzzles(), { initialValue: [] });
-  filterStatus = signal<FilterStatus>('all');
   sortOption = signal<SortOption>('newest');
   highlightedPuzzleId = signal<string | null>(null);
 
   // Computed
   visiblePuzzles = computed(() => {
     let result = this.puzzles().filter(p => {
-      if (this.filterStatus() === 'all') return true;
-      return p.status === this.filterStatus();
+      if (this.puzzleService.filterStatus() === 'all') return true;
+      return p.status === this.puzzleService.filterStatus();
     });
 
     const sort = this.sortOption();
