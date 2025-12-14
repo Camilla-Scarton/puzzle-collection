@@ -1,11 +1,11 @@
 <!-- Card Container -->
-<div class="group relative transition-all duration-300 h-full flex flex-col"
+<div class="group relative transition-all duration-300 h-full flex flex-col border"
     [class.overflow-hidden]="layoutMode === 'grid'"
     [style.transform]="layoutMode === 'masonry' ? 'translateX(' + randomOffset + '%)' : ''"
     [class.bg-gray-800]="layoutMode === 'grid'" [class.rounded-xl]="layoutMode === 'grid'"
     [class.shadow-lg]="layoutMode === 'grid'" [class.hover:shadow-xl]="layoutMode === 'grid'"
-    [class.hover:shadow-indigo-500/10]="layoutMode === 'grid'" [class.border]="layoutMode === 'grid'"
-    [class.border-gray-700]="layoutMode === 'grid'" [class.rounded-lg]="layoutMode === 'masonry'"
+    [class.hover:shadow-indigo-500/10]="layoutMode === 'grid'" [class.border-gray-700]="layoutMode === 'grid'"
+    [class.border-transparent]="layoutMode === 'masonry'" [class.rounded-lg]="layoutMode === 'masonry'"
     [class.-mt-32]="layoutMode === 'masonry'" [class.first:mt-0]="layoutMode === 'masonry'"
     [class.hover:z-50]="layoutMode === 'masonry'" [class.z-50]="layoutMode === 'masonry' && isActive"
     [class.relative]="layoutMode === 'masonry'">
