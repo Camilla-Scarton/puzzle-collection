@@ -28,8 +28,23 @@ export class PuzzleList {
   // Computed
   visiblePuzzles = computed(() => {
     let result = this.puzzles().filter(p => {
-      if (this.puzzleService.filterStatus() === 'all') return true;
-      return p.status === this.puzzleService.filterStatus();
+      // Status Filter
+      if (this.puzzleService.filterStatus() !== 'all' && p.status !== this.puzzleService.filterStatus()) {
+        return false;
+      }
+
+      // Brand Filter
+      if (this.puzzleService.filterBrand() !== 'all' && p.brand !== this.puzzleService.filterBrand()) {
+        return false;
+      }
+
+      // Piece Count Filter
+      const countFilter = this.puzzleService.filterPieceCount();
+      if (countFilter !== 'all' && p.pieceCount !== Number(countFilter)) {
+        return false;
+      }
+
+      return true;
     });
 
     const sort = this.sortOption();

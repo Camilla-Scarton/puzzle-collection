@@ -29,6 +29,8 @@ export class App {
 
   setFilter(status: FilterStatus) {
     this.puzzleService.filterStatus.set(status);
+    this.puzzleService.filterBrand.set('all');
+    this.puzzleService.filterPieceCount.set('all');
     this.scrollToTop();
   }
 }

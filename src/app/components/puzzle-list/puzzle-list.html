@@ -1,45 +1,88 @@
 <div *ngIf="layout.layoutMode() === 'grid'"
-    class="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-800 p-4 rounded-xl shadow-lg border border-gray-700/50">
-    <!-- Filter -->
-    <div class="flex items-center gap-3 w-full sm:w-auto">
-        <label class="text-sm font-medium text-gray-400 whitespace-nowrap">Status:</label>
-        <div class="relative w-full sm:w-48">
-            <select [ngModel]="puzzleService.filterStatus()" (ngModelChange)="puzzleService.filterStatus.set($event)"
-                class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
-                <option value="all">All Puzzles</option>
-                <option value="completed">Completed</option>
-                <option value="in-progress">In Progress</option>
-                <option value="wishlist">Wishlist</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
+    class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700/50">
+
+    <!-- Left Column: Brand & Status -->
+    <div class="flex flex-col gap-4 h-full justify-between">
+        <!-- Brand Filter -->
+        <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-400">Brand</label>
+            <div class="relative">
+                <select [ngModel]="puzzleService.filterBrand()" (ngModelChange)="puzzleService.filterBrand.set($event)"
+                    class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2.5 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
+                    <option value="all">All Brands</option>
+                    <option *ngFor="let brand of puzzleService.getBrands()" [value]="brand">{{ brand }}</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-400">Status</label>
+            <div class="relative">
+                <select [ngModel]="puzzleService.filterStatus()"
+                    (ngModelChange)="puzzleService.filterStatus.set($event)"
+                    class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2.5 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
+                    <option value="all">All Statuses</option>
+                    <option value="completed">Completed</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="wishlist">Wishlist</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Sort -->
-    <div class="flex items-center gap-3 w-full sm:w-auto">
-        <label class="text-sm font-medium text-gray-400 whitespace-nowrap">Sort by:</label>
-        <div class="relative w-full sm:w-48">
-            <select [ngModel]="sortOption()" (ngModelChange)="sortOption.set($event)"
-                class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
-                <option value="newest">Newest First</option>
-                <option value="title">Title (A-Z)</option>
-                <option value="pieces_desc">Pieces (Most)</option>
-                <option value="pieces_asc">Pieces (Least)</option>
-                <option value="rating">Rating</option>
-            </select>
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
+    <!-- Right Column: Piece Count & Sort -->
+    <div class="flex flex-col gap-4 h-full justify-between">
+        <!-- Piece Count Filter -->
+        <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-400">Piece Count</label>
+            <div class="relative">
+                <select [ngModel]="puzzleService.filterPieceCount()"
+                    (ngModelChange)="puzzleService.filterPieceCount.set($event)"
+                    class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2.5 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
+                    <option value="all">All Sizes</option>
+                    <option *ngFor="let count of puzzleService.getPieceCounts()" [value]="count">{{ count }} pieces
+                    </option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sort -->
+        <div class="flex flex-col gap-1">
+            <label class="text-sm font-medium text-gray-400">Sort by</label>
+            <div class="relative">
+                <select [ngModel]="sortOption()" (ngModelChange)="sortOption.set($event)"
+                    class="w-full appearance-none bg-gray-900 border border-gray-700 text-gray-300 py-2.5 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-900 focus:border-indigo-500 transition-colors cursor-pointer text-sm">
+                    <option value="newest">Newest First</option>
+                    <option value="title">Title (A-Z)</option>
+                    <option value="pieces_desc">Pieces (Most)</option>
+                    <option value="pieces_asc">Pieces (Least)</option>
+                    <option value="rating">Rating</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Results Count -->
 <div *ngIf="layout.layoutMode() === 'grid'" class="mb-4 text-sm text-gray-400 font-medium">
     Showing {{ visiblePuzzles().length }} puzzles

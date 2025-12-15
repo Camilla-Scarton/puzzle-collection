@@ -7,6 +7,8 @@ import { Puzzle, FilterStatus } from '../models/puzzle.model';
 })
 export class PuzzleService {
     filterStatus = signal<FilterStatus>('all');
+    filterBrand = signal<string>('all');
+    filterPieceCount = signal<string | number>('all'); // 'all' or specific number
 
     private puzzles: Puzzle[] = [
         {
@@ -175,5 +177,13 @@ export class PuzzleService {
 
     getPuzzleById(id: string): Observable<Puzzle | undefined> {
         return of(this.puzzles.find(p => p.id === id));
+    }
+
+    getBrands(): string[] {
+        return [...new Set(this.puzzles.map(p => p.brand))].sort();
+    }
+
+    getPieceCounts(): number[] {
+        return [...new Set(this.puzzles.map(p => p.pieceCount))].sort((a, b) => a - b);
     }
 }
