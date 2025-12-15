@@ -55,7 +55,7 @@
         (mouseenter)="highlightedPuzzleId.set(puzzle.id)"
         [style.zIndex]="highlightedPuzzleId() === puzzle.id ? 9999 : (visiblePuzzles().length - i)"
         class="block break-inside-avoid transition-all duration-500 ease-out"
-        [class.h-full]="layout.layoutMode() === 'grid'" [class.-mt-12]="layout.layoutMode() === 'masonry'"
+        [class.h-full]="layout.layoutMode() === 'grid'" [class.-mt-[13px]]="layout.layoutMode() === 'masonry'"
         [class.first:mt-0]="layout.layoutMode() === 'masonry'"
         [class.relative]="layout.layoutMode() === 'masonry'"></app-puzzle-card>
 

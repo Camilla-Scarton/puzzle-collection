@@ -6,7 +6,7 @@
     [class.shadow-lg]="layoutMode === 'grid'" [class.hover:shadow-xl]="layoutMode === 'grid'"
     [class.hover:shadow-indigo-500/10]="layoutMode === 'grid'" [class.border-gray-700]="layoutMode === 'grid'"
     [class.border-transparent]="layoutMode === 'masonry'" [class.rounded-lg]="layoutMode === 'masonry'"
-    [class.-mt-32]="layoutMode === 'masonry'" [class.first:mt-0]="layoutMode === 'masonry'"
+    [class.-mt-4]="layoutMode === 'masonry'" [class.first:mt-0]="layoutMode === 'masonry'"
     [class.hover:z-50]="layoutMode === 'masonry'" [class.z-50]="layoutMode === 'masonry' && isActive"
     [class.relative]="layoutMode === 'masonry'">
 
@@ -14,7 +14,10 @@
     <div class="relative bg-gray-900" [class.overflow-hidden]="layoutMode === 'grid'"
         [class.bg-transparent]="layoutMode === 'masonry'" [class.aspect-[4/3]]="layoutMode === 'grid'"
         [class.rounded-t-xl]="layoutMode === 'grid'" [class.rounded-lg]="layoutMode === 'masonry'"
-        [class.w-fit]="layoutMode === 'masonry'" [class.mx-auto]="layoutMode === 'masonry'">
+        [class.w-fit]="layoutMode === 'masonry'" [class.mx-auto]="layoutMode === 'masonry'"
+        [class.p-1]="layoutMode === 'masonry'" [class.bg-gradient-to-br]="layoutMode === 'masonry'"
+        [class.from-indigo-500]="layoutMode === 'masonry'" [class.via-purple-500]="layoutMode === 'masonry'"
+        [class.to-indigo-900]="layoutMode === 'masonry'">
         <img [src]="puzzle.imageUrl" [alt]="puzzle.title"
             class="object-cover transform transition-transform duration-700 mx-auto"
             [class.w-full]="layoutMode === 'grid'" [class.h-full]="layoutMode === 'grid'"
@@ -22,7 +25,6 @@
             [class.h-auto]="layoutMode === 'masonry'" [class.max-h-[80vh]]="layoutMode === 'masonry'"
             [class.group-hover:scale-105]="layoutMode === 'grid'" [class.opacity-90]="layoutMode === 'grid'"
             [class.group-hover:opacity-100]="layoutMode === 'grid'" [class.opacity-100]="layoutMode === 'masonry'"
-            [class.border-2]="layoutMode === 'masonry'" [class.border-gray-200]="layoutMode === 'masonry'"
             [class.rounded-lg]="layoutMode === 'masonry'"
             [class.group-hover:shadow-[0_0_30px_5px_rgba(99,102,241,0.6)]]="layoutMode === 'masonry'" />
 
