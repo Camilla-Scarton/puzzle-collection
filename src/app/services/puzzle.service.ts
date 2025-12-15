@@ -11,151 +11,159 @@ export class PuzzleService {
     private puzzles: Puzzle[] = [
         {
             id: '1',
-            title: 'The Starry Night',
+            title: 'Van Gogh Flowers',
             brand: 'Ravensburger',
             pieceCount: 1000,
             review: 'Classic image, high quality pieces. A bit challenging with all the blues.',
             rating: 5,
-            imageUrl: 'https://images.unsplash.com/photo-1579783902614-a3fb39279c23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            imageUrl: '/puzzles/Van Gogh Flowers.jpg',
             status: 'completed'
         },
         {
             id: '2',
-            title: 'Cinque Terre',
+            title: 'Oia',
             brand: 'Clementoni',
             pieceCount: 1500,
             review: 'Beautiful colors, but the sky was tricky.',
             rating: 4.5,
-            imageUrl: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            imageUrl: '/puzzles/Oia.jpg',
             status: 'completed'
         },
         {
             id: '3',
-            title: 'Tropical Rainforest',
+            title: 'Ants and Mountains',
             brand: 'Educa',
             pieceCount: 2000,
             rating: 0,
-            imageUrl: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            imageUrl: '/puzzles/Ants and mountains.jpg',
             status: 'wishlist'
         },
         {
             id: '4',
-            title: 'Neuschwanstein Castle',
+            title: 'Castle',
             brand: 'Ravensburger',
             pieceCount: 1000,
             rating: 3,
             review: 'Missing one piece :(',
-            imageUrl: 'https://images.unsplash.com/photo-1599587216694-850d906169a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            imageUrl: '/puzzles/Castle.jpg',
             status: 'completed'
         },
         {
             id: '5',
-            title: 'Underwater World',
+            title: 'Ships',
             brand: 'Heye',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: 'https://images.unsplash.com/photo-1582967788606-a171f1080ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            imageUrl: '/puzzles/Ships.jpg',
         },
         {
             id: '6',
-            title: 'Mountain Lake',
+            title: 'Mountains and Sea',
             brand: 'Schmidt',
             pieceCount: 500,
             status: 'completed',
-            imageUrl: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/Mountains and sea.jpg', // Landscape
         },
         {
             id: '7',
-            title: 'Abstract Art',
+            title: 'Amore & Psiche',
             brand: 'Cloudberries',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80', // Portrait
+            imageUrl: '/puzzles/Amore & Psiche.jpg', // Portrait
         },
         {
             id: '8',
-            title: 'Coffee Shop',
+            title: 'Kitchen Cupboard',
             brand: 'Galison',
             pieceCount: 500,
             status: 'completed',
             rating: 4,
-            imageUrl: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/Kitchen cupboard.jpg', // Landscape
         },
         {
             id: '9',
-            title: 'Space Explorer',
+            title: 'Silver Krypto',
             brand: 'Mudpuppy',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80', // Square
+            imageUrl: '/puzzles/Silver Krypto.jpg', // Square
         },
         {
             id: '10',
-            title: 'Vintage Maps',
+            title: 'Butterfly',
             brand: 'Cavallini & Co.',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=900&q=80', // Vertical
+            imageUrl: '/puzzles/Butterfly.jpg', // Vertical
         },
         {
             id: '11',
-            title: 'Succulent Garden',
+            title: 'City Plant',
             brand: 'Buffalo Games',
             pieceCount: 750,
             status: 'completed',
             rating: 5,
             review: 'So satisfying to put together!',
-            imageUrl: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/City plant.jpg', // Landscape
         },
         {
             id: '12',
-            title: 'Japanese Garden',
+            title: 'Waterfall',
             brand: 'Eurographics',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: 'https://images.unsplash.com/photo-1588667822007-6bcef39df9d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80', // Landscape
+            imageUrl: '/puzzles/Waterfall.jpg', // Landscape
         },
         {
             id: '13',
-            title: 'Colorful Spices',
+            title: 'Candies',
             brand: 'Ravensburger',
             pieceCount: 1500,
             status: 'wishlist',
-            imageUrl: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/Candies.jpg', // Landscape
         },
         {
             id: '14',
-            title: 'Winter Cabin',
+            title: 'Christmas',
             brand: 'Falcon',
             pieceCount: 1000,
             status: 'completed',
             rating: 3,
-            imageUrl: 'https://images.unsplash.com/photo-1518182170546-07fa6ee32bd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80', // Portrait
+            imageUrl: '/puzzles/Christmas.jpg', // Portrait
         },
         {
             id: '15',
-            title: 'Retro Camera',
+            title: 'Hobbies Cupboard',
             brand: 'Heye',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/Hobbies cupboard.jpg', // Landscape
         },
         {
             id: '16',
-            title: 'Wild Flowers',
+            title: 'Cat with Flower',
             brand: 'EeBoo',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: 'https://images.unsplash.com/photo-1490750967868-58cb75069ed6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=900&q=80', // Portrait
+            imageUrl: '/puzzles/Cat with flower.jpg', // Portrait
         },
         {
             id: '17',
-            title: 'City Lights',
+            title: 'Chocolate',
             brand: 'Clementoni',
             pieceCount: 2000,
             status: 'completed',
             rating: 5,
-            imageUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // Landscape
+            imageUrl: '/puzzles/Chocolate.jpg', // Landscape
+        },
+        {
+            id: '18',
+            title: 'Orange Cat',
+            brand: 'Ravensburger',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/Orange cat.jpg',
         }
     ];
 
