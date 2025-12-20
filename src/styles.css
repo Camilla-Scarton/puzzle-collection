@@ -119,155 +119,313 @@ body {
     animation: dotPulse 8s ease-in-out infinite;
 }
 
+/* Dots forming a "vignette" (Frame + Corners) centered on the middle of the page height */
+/* The core center (35% to 65% horizontal) remains empty/clean. */
+
+/* Left side distribution (Corners, far edges, and inner frame boundary) */
 .circle-left-1 {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    top: 8%;
-    left: 10%;
+    background: #6366f1;
+    top: 2%;
+    left: 2%;
     animation-delay: 0s;
 }
 
-.circle-right-1 {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
-    top: 18%;
-    right: 12%;
-    animation-delay: -1s;
-    animation-duration: 9s;
-}
-
+/* Top Corner */
 .circle-left-2 {
     width: 45px;
     height: 45px;
     background: #818cf8;
-    top: 32%;
-    left: 8%;
-    animation-delay: -2s;
+    top: 15%;
+    left: 22%;
+    animation-delay: -1.5s;
 }
 
-.circle-right-2 {
-    width: 70px;
-    height: 70px;
-    background: #6366f1;
-    top: 42%;
-    right: 10%;
-    animation-delay: -3s;
-    animation-duration: 10s;
-}
-
+/* Inner Frame */
 .circle-left-3 {
     width: 90px;
     height: 90px;
-    background: #6366f1;
-    top: 56%;
-    left: 12%;
-    opacity: 0.3;
+    background: #4f46e5;
+    top: 25%;
+    left: 5%;
     animation-delay: -4s;
+    opacity: 0.3;
 }
 
-.circle-right-3 {
-    width: 50px;
-    height: 50px;
-    background: #8b5cf6;
-    top: 68%;
-    right: 14%;
-    animation-delay: -5s;
-    animation-duration: 7s;
-}
-
+/* Edge */
 .circle-left-4 {
     width: 40px;
     height: 40px;
     background: #a855f7;
-    top: 78%;
-    left: 9%;
-    animation-delay: -6s;
+    top: 35%;
+    left: 18%;
+    animation-delay: -2s;
 }
 
-.circle-right-4 {
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, #4f46e5 0%, transparent 80%);
-    top: 88%;
-    right: 11%;
-    animation-delay: -7s;
-    animation-duration: 11s;
-}
-
+/* Intermediate */
 .circle-left-5 {
     width: 75px;
     height: 75px;
     background: #6366f1;
-    top: 94%;
-    left: 7%;
+    top: 45%;
+    left: 4%;
     animation-delay: -0.5s;
 }
 
-.circle-right-5 {
-    width: 35px;
-    height: 35px;
-    background: #818cf8;
-    top: 5%;
-    right: 9%;
-    animation-delay: -2.5s;
-}
-
+/* Edge */
 .circle-left-6 {
     width: 50px;
     height: 50px;
     background: #a855f7;
-    top: 25%;
+    top: 55%;
     left: 15%;
     animation-delay: -3.5s;
 }
 
-.circle-right-6 {
-    width: 65px;
-    height: 65px;
-    background: #6366f1;
-    top: 60%;
-    right: 18%;
-    animation-delay: -1.2s;
-    animation-duration: 9.5s;
-}
-
+/* Frame */
 .circle-left-7 {
     width: 30px;
     height: 30px;
     background: #8b5cf6;
-    top: 48%;
-    left: 20%;
+    top: 65%;
+    left: 3%;
     animation-delay: -5.5s;
 }
 
-.circle-right-7 {
-    width: 85px;
-    height: 85px;
-    background: radial-gradient(circle, #4f46e5 0%, transparent 80%);
-    top: 80%;
-    right: 5%;
-    animation-delay: -0.8s;
-}
-
+/* Edge */
 .circle-left-8 {
     width: 40px;
     height: 40px;
     background: #6366f1;
-    top: 65%;
-    left: 5%;
-    animation-delay: -4.2s;
+    top: 75%;
+    left: 25%;
+    animation-delay: -1.2s;
 }
 
+/* Inner Frame */
+.circle-left-9 {
+    width: 45px;
+    height: 45px;
+    background: #818cf8;
+    top: 85%;
+    left: 6%;
+    animation-delay: -2.8s;
+}
+
+/* Edge */
+.circle-left-10 {
+    width: 70px;
+    height: 70px;
+    background: #8b5cf6;
+    top: 92%;
+    left: 20%;
+    animation-delay: -4.8s;
+}
+
+/* Bottom Frame */
+.circle-left-11 {
+    width: 55px;
+    height: 55px;
+    background: #4f46e5;
+    top: 5%;
+    left: 18%;
+    animation-delay: -0.8s;
+}
+
+/* Top Frame */
+.circle-left-12 {
+    width: 30px;
+    height: 30px;
+    background: #818cf8;
+    top: 50%;
+    left: 28%;
+    animation-delay: -3.7s;
+}
+
+/* Inner-most center boundary */
+.circle-left-13 {
+    width: 65px;
+    height: 65px;
+    background: #8b5cf6;
+    top: 98%;
+    left: 2%;
+    animation-delay: -4.3s;
+}
+
+/* Bottom Corner */
+.circle-left-14 {
+    width: 50px;
+    height: 50px;
+    background: #4f46e5;
+    top: 8%;
+    left: 10%;
+    animation-delay: -5.6s;
+}
+
+/* Near Top edge */
+.circle-left-15 {
+    width: 40px;
+    height: 40px;
+    background: #818cf8;
+    top: 95%;
+    left: 12%;
+    animation-delay: -1.1s;
+}
+
+/* Near Bottom edge */
+
+/* Right side distribution (Symmetric vignette) */
+.circle-right-1 {
+    width: 80px;
+    height: 80px;
+    background: #a855f7;
+    top: 2%;
+    right: 2%;
+    animation-delay: -1s;
+}
+
+/* Top Corner */
+.circle-right-2 {
+    width: 70px;
+    height: 70px;
+    background: #6366f1;
+    top: 15%;
+    right: 22%;
+    animation-delay: -3s;
+}
+
+/* Inner Frame */
+.circle-right-3 {
+    width: 50px;
+    height: 50px;
+    background: #8b5cf6;
+    top: 25%;
+    right: 5%;
+    animation-delay: -5s;
+}
+
+/* Edge */
+.circle-right-4 {
+    width: 100px;
+    height: 100px;
+    background: #4f46e5;
+    top: 35%;
+    right: 18%;
+    animation-delay: -7s;
+}
+
+/* Intermediate */
+.circle-right-5 {
+    width: 35px;
+    height: 35px;
+    background: #818cf8;
+    top: 45%;
+    right: 4%;
+    animation-delay: -2.5s;
+}
+
+/* Edge */
+.circle-right-6 {
+    width: 65px;
+    height: 65px;
+    background: #6366f1;
+    top: 55%;
+    right: 15%;
+    animation-delay: -6.2s;
+}
+
+/* Frame */
+.circle-right-7 {
+    width: 85px;
+    height: 85px;
+    background: #4f46e5;
+    top: 65%;
+    right: 3%;
+    animation-delay: -0.8s;
+}
+
+/* Edge */
 .circle-right-8 {
     width: 55px;
     height: 55px;
     background: #a855f7;
-    top: 35%;
-    right: 4%;
+    top: 75%;
+    right: 25%;
     animation-delay: -2.8s;
 }
+
+/* Inner Frame */
+.circle-right-9 {
+    width: 60px;
+    height: 60px;
+    background: #6366f1;
+    top: 85%;
+    right: 6%;
+    animation-delay: -3.2s;
+}
+
+/* Edge */
+.circle-right-10 {
+    width: 35px;
+    height: 35px;
+    background: #a855f7;
+    top: 92%;
+    right: 20%;
+    animation-delay: -4.2s;
+}
+
+/* Bottom Frame */
+.circle-right-11 {
+    width: 80px;
+    height: 80px;
+    background: #6366f1;
+    top: 5%;
+    right: 18%;
+    animation-delay: -5.1s;
+}
+
+/* Top Frame */
+.circle-right-12 {
+    width: 40px;
+    height: 40px;
+    background: #a855f7;
+    top: 50%;
+    right: 28%;
+    animation-delay: -1.9s;
+}
+
+/* Inner-most center boundary */
+.circle-right-13 {
+    width: 90px;
+    height: 90px;
+    background: #6366f1;
+    top: 98%;
+    right: 2%;
+    animation-delay: -2.1s;
+}
+
+/* Bottom Corner */
+.circle-right-14 {
+    width: 35px;
+    height: 35px;
+    background: #a855f7;
+    top: 8%;
+    right: 10%;
+    animation-delay: -0.9s;
+}
+
+/* Near Top edge */
+.circle-right-15 {
+    width: 75px;
+    height: 75px;
+    background: #6366f1;
+    top: 95%;
+    right: 12%;
+    animation-delay: -4.4s;
+}
+
+/* Near Bottom edge */
 
 /* Response for devices */
 @media only screen and (max-device-width: 1366px) {
