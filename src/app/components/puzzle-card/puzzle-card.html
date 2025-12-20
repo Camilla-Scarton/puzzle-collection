@@ -1,7 +1,8 @@
 <!-- Card Container -->
 <div class="group relative transition-all duration-300 h-full flex flex-col border"
-    [class.overflow-hidden]="layoutMode === 'grid'"
-    [style.transform]="layoutMode === 'masonry' ? 'translateX(' + offset + '%)' : ''"
+    [class.overflow-hidden]="layoutMode === 'grid'" [style.--random-factor]="isFirst ? 0 : randomFactor"
+    [style.--max-safe-shift]="maxSafeShiftPx() + 'px'"
+    [style.transform]="layoutMode === 'masonry' ? 'translateX(calc(var(--random-factor) * var(--max-safe-shift)))' : ''"
     [class.bg-gray-800]="layoutMode === 'grid'" [class.rounded-xl]="layoutMode === 'grid'"
     [class.shadow-lg]="layoutMode === 'grid'" [class.hover:shadow-xl]="layoutMode === 'grid'"
     [class.hover:shadow-indigo-500/10]="layoutMode === 'grid'" [class.border-gray-700]="layoutMode === 'grid'"
@@ -18,7 +19,7 @@
         [class.p-1]="layoutMode === 'masonry'" [class.bg-gradient-to-br]="layoutMode === 'masonry'"
         [class.from-indigo-500]="layoutMode === 'masonry'" [class.via-purple-500]="layoutMode === 'masonry'"
         [class.to-indigo-900]="layoutMode === 'masonry'">
-        <img [src]="puzzle.imageUrl" [alt]="puzzle.title"
+        <img [src]="puzzle.imageUrl" [alt]="puzzle.title" (load)="calculateSafeShift()"
             class="object-cover transform transition-transform duration-700 mx-auto"
             [class.w-full]="layoutMode === 'grid'" [class.h-full]="layoutMode === 'grid'"
             [class.max-w-full]="layoutMode === 'masonry'" [class.w-auto]="layoutMode === 'masonry'"
