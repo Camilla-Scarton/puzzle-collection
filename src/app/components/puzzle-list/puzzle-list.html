@@ -95,7 +95,7 @@
     [class.mx-auto]="layout.layoutMode() === 'masonry'" [class.pb-24]="layout.layoutMode() === 'masonry'">
     <app-puzzle-card *ngFor="let puzzle of visiblePuzzles(); let i = index" [id]="'puzzle-' + puzzle.id"
         [puzzle]="puzzle" [layoutMode]="layout.layoutMode()" [isActive]="highlightedPuzzleId() === puzzle.id"
-        (mouseenter)="highlightedPuzzleId.set(puzzle.id)"
+        [isFirst]="i === 0" (mouseenter)="highlightedPuzzleId.set(puzzle.id)"
         [style.zIndex]="highlightedPuzzleId() === puzzle.id ? 9999 : (visiblePuzzles().length - i)"
         class="block break-inside-avoid transition-all duration-500 ease-out"
         [class.h-full]="layout.layoutMode() === 'grid'" [class.-mt-[13px]]="layout.layoutMode() === 'masonry'"

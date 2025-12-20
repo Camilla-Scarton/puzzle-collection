@@ -21,9 +21,14 @@ export class PuzzleCard {
   @Input({ required: true }) puzzle!: Puzzle;
   @Input() layoutMode: LayoutMode = 'grid';
   @Input() isActive = false;
+  @Input() isFirst = false;
 
   // Random offset for masonry layout (between -40% and 40%)
-  randomOffset = Math.floor(Math.random() * 81) - 40;
+  private _randomOffset = Math.floor(Math.random() * 81) - 40;
+
+  get offset(): number {
+    return this.isFirst ? 0 : this._randomOffset;
+  }
 
   formatStatus(status: string): string {
     return status.replace('-', ' ');

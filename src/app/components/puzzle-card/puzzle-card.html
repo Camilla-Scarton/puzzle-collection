@@ -1,7 +1,7 @@
 <!-- Card Container -->
 <div class="group relative transition-all duration-300 h-full flex flex-col border"
     [class.overflow-hidden]="layoutMode === 'grid'"
-    [style.transform]="layoutMode === 'masonry' ? 'translateX(' + randomOffset + '%)' : ''"
+    [style.transform]="layoutMode === 'masonry' ? 'translateX(' + offset + '%)' : ''"
     [class.bg-gray-800]="layoutMode === 'grid'" [class.rounded-xl]="layoutMode === 'grid'"
     [class.shadow-lg]="layoutMode === 'grid'" [class.hover:shadow-xl]="layoutMode === 'grid'"
     [class.hover:shadow-indigo-500/10]="layoutMode === 'grid'" [class.border-gray-700]="layoutMode === 'grid'"
