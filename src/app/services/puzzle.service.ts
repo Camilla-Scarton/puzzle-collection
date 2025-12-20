@@ -166,6 +166,46 @@ export class PuzzleService {
             pieceCount: 1000,
             status: 'wishlist',
             imageUrl: '/puzzles/Orange cat.jpg',
+        },
+        {
+            id: '19',
+            title: 'Cat & Christmas Lego',
+            brand: 'Unknown',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/Cat & Christmas Lego.jpg',
+        },
+        {
+            id: '20',
+            title: 'Cinque Terre',
+            brand: 'Unknown',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/Cinque Terre.jpg',
+        },
+        {
+            id: '21',
+            title: 'German Flower',
+            brand: 'Unknown',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/German flower.jpg',
+        },
+        {
+            id: '22',
+            title: 'Harry Potter Bus',
+            brand: 'Unknown',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/Harry Potter bus.jpg',
+        },
+        {
+            id: '23',
+            title: 'Mountain and Snow',
+            brand: 'Unknown',
+            pieceCount: 1000,
+            status: 'wishlist',
+            imageUrl: '/puzzles/Mountain and snow.jpg',
         }
     ];
 
