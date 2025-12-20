@@ -60,6 +60,15 @@ export class PuzzleList {
   });
 
   constructor() {
+    // Reset highlight when switching to masonry layout
+    effect(() => {
+      const mode = this.layout.layoutMode();
+      if (mode === 'masonry') {
+        const firstPuzzle = this.visiblePuzzles()[0];
+        this.highlightedPuzzleId.set(firstPuzzle?.id || null);
+      }
+    }, { allowSignalWrites: true });
+
     // Auto-scroll Mini Map
     effect(() => {
       const targetId = this.highlightedPuzzleId();

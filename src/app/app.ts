@@ -33,4 +33,9 @@ export class App {
     this.puzzleService.filterPieceCount.set('all');
     this.scrollToTop();
   }
+
+  toggleLayout() {
+    this.layout.toggleLayout();
+    this.scrollToTop();
+  }
 }
