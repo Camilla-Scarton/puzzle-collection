@@ -465,11 +465,15 @@ body {
     left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
-    max-width: 80vw;
+    max-width: calc(80vw - 70px);
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 8px;
     /* Space for horizontal scrollbar */
+}
+
+.minimap-container.at-bottom {
+    margin-bottom: 5.5rem;
 }
 
 @media (min-width: 1000px) {

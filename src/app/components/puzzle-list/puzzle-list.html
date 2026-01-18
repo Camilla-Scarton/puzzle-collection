@@ -111,7 +111,8 @@
 
 <!-- Mini Map Sidebar (Masonry Only) -->
 <div *ngIf="layout.layoutMode() === 'masonry' && visiblePuzzles().length > 0"
-    class="minimap-container fixed flex gap-3 z-[10000] p-3 bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 shadow-2xl transition-all duration-300">
+    class="minimap-container fixed flex gap-3 z-[10000] p-3 bg-gray-900/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 shadow-2xl transition-all duration-300"
+    [class.at-bottom]="layout.isAtBottom()">
     <button *ngFor="let puzzle of visiblePuzzles()" (click)="scrollToPuzzle('puzzle-' + puzzle.id)"
         [id]="'minimap-btn-' + puzzle.id"
         class="relative group w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0"

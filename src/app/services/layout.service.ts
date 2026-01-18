@@ -7,6 +7,7 @@ export type LayoutMode = 'grid' | 'masonry';
 })
 export class LayoutService {
     layoutMode = signal<LayoutMode>('grid');
+    isAtBottom = signal(false);
 
     toggleLayout() {
         this.layoutMode.update(mode => mode === 'grid' ? 'masonry' : 'grid');

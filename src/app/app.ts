@@ -21,6 +21,13 @@ export class App {
   @HostListener('window:scroll')
   onWindowScroll() {
     this.showScrollTop.set(window.scrollY > 300);
+
+    // Detect if user is at the bottom of the page
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    const documentHeight = document.documentElement.scrollHeight;
+    const atBottom = (windowHeight + scrollY) >= (documentHeight - 20);
+    this.layout.isAtBottom.set(atBottom);
   }
 
   scrollToTop() {
