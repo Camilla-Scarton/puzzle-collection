@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, effect } from '@angular/core';
+import { Component, computed, inject, signal, effect, untracked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +24,7 @@ export class PuzzleList {
   puzzles = toSignal(this.puzzleService.getPuzzles(), { initialValue: [] });
   sortOption = signal<SortOption>('newest');
   highlightedPuzzleId = signal<string | null>(null);
+  public isScrolling = false;
 
   // Computed
   visiblePuzzles = computed(() => {
@@ -64,7 +65,9 @@ export class PuzzleList {
     effect(() => {
       const mode = this.layout.layoutMode();
       if (mode === 'masonry') {
-        const firstPuzzle = this.visiblePuzzles()[0];
+        // Use untracked to avoid triggering this effect when visiblePuzzles changes 
+        // We only want to reset when the MODE specifically changes to masonry
+        const firstPuzzle = untracked(() => this.visiblePuzzles()[0]);
         this.highlightedPuzzleId.set(firstPuzzle?.id || null);
       }
     }, { allowSignalWrites: true });
@@ -76,7 +79,8 @@ export class PuzzleList {
       if (targetId) {
         const miniMapBtn = document.getElementById(`minimap-btn-${targetId}`);
         if (miniMapBtn) {
-          miniMapBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          // block: 'nearest' handles vertical, inline: 'nearest' handles horizontal
+          miniMapBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
         }
       }
     });
@@ -87,10 +91,19 @@ export class PuzzleList {
     const puzzleId = elementId.replace('puzzle-', '');
     this.highlightedPuzzleId.set(puzzleId);
 
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    // Lock hover highlights during automated scroll
+    this.isScrolling = true;
+
+    requestAnimationFrame(() => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Unlock after a delay that matches the smooth scroll duration
+        setTimeout(() => this.isScrolling = false, 800);
+      } else {
+        this.isScrolling = false;
+      }
+    });
   }
   // I will add the import in the top of file edit. 
   // Here only the method logic. 

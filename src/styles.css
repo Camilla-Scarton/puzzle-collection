@@ -457,3 +457,35 @@ body {
         opacity: 0.5;
     }
 }
+
+/* Responsive Minimap */
+.minimap-container {
+    /* Mobile/Small Screen Default (< 1000px) */
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    max-width: 80vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+    /* Space for horizontal scrollbar */
+}
+
+@media (min-width: 1000px) {
+    .minimap-container {
+        bottom: auto;
+        left: auto;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        width: fit-content;
+        max-width: none;
+        max-height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden !important;
+        /* Strict lock */
+        box-sizing: border-box;
+    }
+}
