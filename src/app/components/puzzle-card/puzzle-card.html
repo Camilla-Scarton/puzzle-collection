@@ -1,6 +1,7 @@
 <!-- Card Container -->
 <div class="group relative transition-all duration-300 h-full flex flex-col border"
-    [class.overflow-hidden]="layoutMode === 'grid'" [style.--random-factor]="isFirst ? 0 : randomFactor"
+    [class.overflow-hidden]="layoutMode === 'grid'" [class.w-fit]="layoutMode === 'masonry'"
+    [class.mx-auto]="layoutMode === 'masonry'" [style.--random-factor]="isFirst ? 0 : randomFactor"
     [style.--max-safe-shift]="maxSafeShiftPx() + 'px'"
     [style.transform]="layoutMode === 'masonry' ? 'translateX(calc(var(--random-factor) * var(--max-safe-shift)))' : ''"
     [class.bg-gray-800]="layoutMode === 'grid'" [class.rounded-xl]="layoutMode === 'grid'"
