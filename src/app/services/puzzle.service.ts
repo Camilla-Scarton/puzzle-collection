@@ -18,7 +18,7 @@ export class PuzzleService {
             pieceCount: 1000,
             review: 'Classic image, high quality pieces. A bit challenging with all the blues.',
             rating: 5,
-            imageUrl: '/puzzles/Van Gogh Flowers.jpg',
+            imageUrl: 'puzzles/Van Gogh Flowers.jpg',
             status: 'completed'
         },
         {
@@ -28,7 +28,7 @@ export class PuzzleService {
             pieceCount: 1500,
             review: 'Beautiful colors, but the sky was tricky.',
             rating: 4.5,
-            imageUrl: '/puzzles/Oia.jpg',
+            imageUrl: 'puzzles/Oia.jpg',
             status: 'completed'
         },
         {
@@ -37,7 +37,7 @@ export class PuzzleService {
             brand: 'Educa',
             pieceCount: 2000,
             rating: 0,
-            imageUrl: '/puzzles/Ants and mountains.jpg',
+            imageUrl: 'puzzles/Ants and mountains.jpg',
             status: 'wishlist'
         },
         {
@@ -47,7 +47,7 @@ export class PuzzleService {
             pieceCount: 1000,
             rating: 3,
             review: 'Missing one piece :(',
-            imageUrl: '/puzzles/Castle.jpg',
+            imageUrl: 'puzzles/Castle.jpg',
             status: 'completed'
         },
         {
@@ -56,7 +56,7 @@ export class PuzzleService {
             brand: 'Heye',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: '/puzzles/Ships.jpg',
+            imageUrl: 'puzzles/Ships.jpg',
         },
         {
             id: '6',
@@ -64,7 +64,7 @@ export class PuzzleService {
             brand: 'Schmidt',
             pieceCount: 500,
             status: 'completed',
-            imageUrl: '/puzzles/Mountains and sea.jpg', // Landscape
+            imageUrl: 'puzzles/Mountains and sea.jpg', // Landscape
         },
         {
             id: '7',
@@ -72,7 +72,7 @@ export class PuzzleService {
             brand: 'Cloudberries',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Amore & Psiche.jpg', // Portrait
+            imageUrl: 'puzzles/Amore & Psiche.jpg', // Portrait
         },
         {
             id: '8',
@@ -81,7 +81,7 @@ export class PuzzleService {
             pieceCount: 500,
             status: 'completed',
             rating: 4,
-            imageUrl: '/puzzles/Kitchen cupboard.jpg', // Landscape
+            imageUrl: 'puzzles/Kitchen cupboard.jpg', // Landscape
         },
         {
             id: '9',
@@ -89,7 +89,7 @@ export class PuzzleService {
             brand: 'Mudpuppy',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: '/puzzles/Silver Krypto.jpg', // Square
+            imageUrl: 'puzzles/Silver Krypto.jpg', // Square
         },
         {
             id: '10',
@@ -97,7 +97,7 @@ export class PuzzleService {
             brand: 'Cavallini & Co.',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Butterfly.jpg', // Vertical
+            imageUrl: 'puzzles/Butterfly.jpg', // Vertical
         },
         {
             id: '11',
@@ -107,7 +107,7 @@ export class PuzzleService {
             status: 'completed',
             rating: 5,
             review: 'So satisfying to put together!',
-            imageUrl: '/puzzles/City plant.jpg', // Landscape
+            imageUrl: 'puzzles/City plant.jpg', // Landscape
         },
         {
             id: '12',
@@ -115,7 +115,7 @@ export class PuzzleService {
             brand: 'Eurographics',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: '/puzzles/Waterfall.jpg', // Landscape
+            imageUrl: 'puzzles/Waterfall.jpg', // Landscape
         },
         {
             id: '13',
@@ -123,7 +123,7 @@ export class PuzzleService {
             brand: 'Ravensburger',
             pieceCount: 1500,
             status: 'wishlist',
-            imageUrl: '/puzzles/Candies.jpg', // Landscape
+            imageUrl: 'puzzles/Candies.jpg', // Landscape
         },
         {
             id: '14',
@@ -132,7 +132,7 @@ export class PuzzleService {
             pieceCount: 1000,
             status: 'completed',
             rating: 3,
-            imageUrl: '/puzzles/Christmas.jpg', // Portrait
+            imageUrl: 'puzzles/Christmas.jpg', // Portrait
         },
         {
             id: '15',
@@ -140,7 +140,7 @@ export class PuzzleService {
             brand: 'Heye',
             pieceCount: 1000,
             status: 'in-progress',
-            imageUrl: '/puzzles/Hobbies cupboard.jpg', // Landscape
+            imageUrl: 'puzzles/Hobbies cupboard.jpg', // Landscape
         },
         {
             id: '16',
@@ -148,7 +148,7 @@ export class PuzzleService {
             brand: 'EeBoo',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Cat with flower.jpg', // Portrait
+            imageUrl: 'puzzles/Cat with flower.jpg', // Portrait
         },
         {
             id: '17',
@@ -157,7 +157,7 @@ export class PuzzleService {
             pieceCount: 2000,
             status: 'completed',
             rating: 5,
-            imageUrl: '/puzzles/Chocolate.jpg', // Landscape
+            imageUrl: 'puzzles/Chocolate.jpg', // Landscape
         },
         {
             id: '18',
@@ -165,7 +165,7 @@ export class PuzzleService {
             brand: 'Ravensburger',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Orange cat.jpg',
+            imageUrl: 'puzzles/Orange cat.jpg',
         },
         {
             id: '19',
@@ -173,7 +173,7 @@ export class PuzzleService {
             brand: 'Unknown',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Cat & Christmas Lego.jpg',
+            imageUrl: 'puzzles/Cat & Christmas Lego.jpg',
         },
         {
             id: '20',
@@ -181,7 +181,7 @@ export class PuzzleService {
             brand: 'Unknown',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Cinque Terre.jpg',
+            imageUrl: 'puzzles/Cinque Terre.jpg',
         },
         {
             id: '21',
@@ -189,7 +189,7 @@ export class PuzzleService {
             brand: 'Unknown',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/German flower.jpg',
+            imageUrl: 'puzzles/German flower.jpg',
         },
         {
             id: '22',
@@ -197,7 +197,7 @@ export class PuzzleService {
             brand: 'Unknown',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Harry Potter bus.jpg',
+            imageUrl: 'puzzles/Harry Potter bus.jpg',
         },
         {
             id: '23',
@@ -205,7 +205,7 @@ export class PuzzleService {
             brand: 'Unknown',
             pieceCount: 1000,
             status: 'wishlist',
-            imageUrl: '/puzzles/Mountain and snow.jpg',
+            imageUrl: 'puzzles/Mountain and snow.jpg',
         }
     ];
 
