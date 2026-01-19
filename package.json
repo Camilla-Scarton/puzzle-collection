@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "fix-puzzle-images": "cp public/puzzles/originals/*.jpg public/puzzles/ && mogrify -resize '800>' -strip public/puzzles/*.jpg",
     "deploy": "ng build --base-href /puzzle-collection/ && npx angular-cli-ghpages --dir=dist/puzzle-collection/browser --no-silent"
   },
   "prettier": {
