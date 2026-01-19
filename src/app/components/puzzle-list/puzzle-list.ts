@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, effect, untracked } from '@angular/core';
+import { Component, computed, inject, signal, effect, untracked, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,8 @@ type SortOption = 'newest' | 'title' | 'pieces_asc' | 'pieces_desc' | 'rating';
 export class PuzzleList {
   public puzzleService = inject(PuzzleService);
   layout = inject(LayoutService);
+
+  @Output() imageClick = new EventEmitter<Puzzle>();
 
   // State
   puzzles = toSignal(this.puzzleService.getPuzzles(), { initialValue: [] });

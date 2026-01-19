@@ -96,6 +96,7 @@
     <app-puzzle-card *ngFor="let puzzle of visiblePuzzles(); let i = index" [id]="'puzzle-' + puzzle.id"
         [puzzle]="puzzle" [layoutMode]="layout.layoutMode()" [isActive]="highlightedPuzzleId() === puzzle.id"
         [isFirst]="i === 0" (mouseenter)="!isScrolling && highlightedPuzzleId.set(puzzle.id)"
+        (imageClick)="imageClick.emit($event)"
         [style.zIndex]="highlightedPuzzleId() === puzzle.id ? 9999 : (visiblePuzzles().length - i)"
         class="block break-inside-avoid transition-all duration-500 ease-out"
         [class.h-full]="layout.layoutMode() === 'grid'" [class.-mt-[13px]]="layout.layoutMode() === 'masonry'"

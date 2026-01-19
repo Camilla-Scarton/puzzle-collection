@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { PuzzleList } from './components/puzzle-list/puzzle-list';
 import { LayoutService } from './services/layout.service';
 import { PuzzleService } from './services/puzzle.service';
-import { FilterStatus } from './models/puzzle.model';
+import { FilterStatus, Puzzle } from './models/puzzle.model';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ export class App implements AfterViewInit {
   layout = inject(LayoutService);
   puzzleService = inject(PuzzleService);
   showScrollTop = signal(false);
+  previewPuzzle = signal<Puzzle | null>(null);
 
   constructor() {
     // Re-check bottom state whenever layout changes
@@ -62,6 +63,23 @@ export class App implements AfterViewInit {
     // A small threshold (20px) to consider "at bottom"
     const atBottom = (windowHeight + scrollY) >= (documentHeight - 20);
     this.layout.isAtBottom.set(atBottom);
+  }
+
+  openPreview(puzzle: Puzzle) {
+    this.previewPuzzle.set(puzzle);
+
+    // Prevent body scroll and compensate for scrollbar width to avoid layout shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+  }
+
+  closePreview() {
+    this.previewPuzzle.set(null);
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
   }
 
   scrollToTop() {

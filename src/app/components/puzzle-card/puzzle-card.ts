@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, AfterViewInit, HostListener, signal } from '@angular/core';
+import { Component, Input, ElementRef, AfterViewInit, HostListener, signal, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Puzzle } from '../../models/puzzle.model';
 import { LayoutMode } from '../../services/layout.service';
@@ -23,11 +23,19 @@ export class PuzzleCard implements AfterViewInit {
   @Input() isActive = false;
   @Input() isFirst = false;
 
+  @Output() imageClick = new EventEmitter<Puzzle>();
+
   // Random factor between -0.8 and 0.8
   randomFactor = (Math.random() * 1.6) - 0.8;
   maxSafeShiftPx = signal<number>(0);
 
   constructor(private el: ElementRef) { }
+
+  handleImageClick() {
+    if (this.layoutMode === 'grid') {
+      this.imageClick.emit(this.puzzle);
+    }
+  }
 
   ngAfterViewInit() {
     this.calculateSafeShift();

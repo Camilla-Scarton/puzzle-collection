@@ -20,14 +20,14 @@
         [class.p-1]="layoutMode === 'masonry'" [class.bg-gradient-to-br]="layoutMode === 'masonry'"
         [class.from-indigo-500]="layoutMode === 'masonry'" [class.via-purple-500]="layoutMode === 'masonry'"
         [class.to-indigo-900]="layoutMode === 'masonry'">
-        <img [src]="puzzle.imageUrl" [alt]="puzzle.title" (load)="calculateSafeShift()"
+        <img [src]="puzzle.imageUrl" [alt]="puzzle.title" (load)="calculateSafeShift()" (click)="handleImageClick()"
             class="object-cover transform transition-transform duration-700 mx-auto"
-            [class.w-full]="layoutMode === 'grid'" [class.h-full]="layoutMode === 'grid'"
-            [class.max-w-full]="layoutMode === 'masonry'" [class.w-auto]="layoutMode === 'masonry'"
-            [class.h-auto]="layoutMode === 'masonry'" [class.max-h-[80vh]]="layoutMode === 'masonry'"
-            [class.group-hover:scale-105]="layoutMode === 'grid'" [class.opacity-90]="layoutMode === 'grid'"
-            [class.group-hover:opacity-100]="layoutMode === 'grid'" [class.opacity-100]="layoutMode === 'masonry'"
-            [class.rounded-lg]="layoutMode === 'masonry'"
+            [class.cursor-pointer]="layoutMode === 'grid'" [class.w-full]="layoutMode === 'grid'"
+            [class.h-full]="layoutMode === 'grid'" [class.max-w-full]="layoutMode === 'masonry'"
+            [class.w-auto]="layoutMode === 'masonry'" [class.h-auto]="layoutMode === 'masonry'"
+            [class.max-h-[80vh]]="layoutMode === 'masonry'" [class.group-hover:scale-105]="layoutMode === 'grid'"
+            [class.opacity-90]="layoutMode === 'grid'" [class.group-hover:opacity-100]="layoutMode === 'grid'"
+            [class.opacity-100]="layoutMode === 'masonry'" [class.rounded-lg]="layoutMode === 'masonry'"
             [class.group-hover:shadow-[0_0_30px_5px_rgba(99,102,241,0.6)]]="layoutMode === 'masonry'" />
 
         <!-- Masonry Overlay (Only visible on hover in masonry mode) -->
